@@ -54,7 +54,7 @@ public class HelloControllerTest {
 					/*
 					 jsonPath : JSON 응답값을 필드별로 검증할 수 있는 메소드.
 					 $를 기준으로 필드명을 명시
-					 여기서는 name과 amount를 검증하니 $.name, $.amoun로 검증
+					 여기서는 name과 amount를 검증하니 $.name, $.amount로 검증
 					 */
 					
 	}
