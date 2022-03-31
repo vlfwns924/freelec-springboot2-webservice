@@ -1,4 +1,4 @@
-package kr.co.lgit.boot.dto;
+package kr.co.lgit.boot.web.dto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -13,7 +13,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import kr.co.lgit.boot.controller.HelloController;
+import kr.co.lgit.boot.web.HelloController;
 
 @RunWith(SpringRunner.class) //테스트를 진행할 때 JUnit에 내장된 실행자 외에 다른 실행자를 실행.
 //즉, 스프링 부트 테스트와 JUnit 사이에 연결자 역할을 한다.
