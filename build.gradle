@@ -17,14 +17,17 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation group: 'junit', name: 'junit', version: '4.12' //junit(테스트 코드) 버전 설정 (새로고침마다 @RunWith 오류 해결)
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //스프링 부트 버전에 맞춰 자동으로 JPA관련 라이브러리들의 버전 관리
+	testImplementation 'com.h2database:h2' //책에서는 JPA의 테스트, 로컬 환경에서의 구동에서 사용할 예정
 	// database
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-	runtimeOnly 'mysql:mysql-connector-java'
+	//implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	//runtimeOnly 'mysql:mysql-connector-java'
 	// mariaDB 연결
-	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
+	//implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
 }
 
 tasks.named('test') {
