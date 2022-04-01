@@ -22,11 +22,14 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools' //클래스 파일 수정 후 테스트 시 Spring Boot 재시작 없이 반영(자동 리로드)
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //스프링 부트 버전에 맞춰 자동으로 JPA관련 라이브러리들의 버전 관리
-	// database
+	// database (springboot 내장 jdbc 사용)
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	runtimeOnly 'mysql:mysql-connector-java'
 	// mariaDB 연결
 	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
+	// jsp 연동(jasper, jstl)
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'javax.servlet:jstl'
 }
 
 tasks.named('test') {

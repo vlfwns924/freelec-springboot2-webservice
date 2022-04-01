@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
  ex) SalesManager.java -> sales_manager table    //그리고 참고사항 91p (요약:Entity의 PK는 Long 타입의 Auto_increment를 추천)
  그리고 Entity에는 절대 Setter 메소드를 만들지 않는다. 대신, 해당 필드의 값 변경이 필요하면 명확히 그 목적과 의도를 나타낼 수 있는 메소드 추가. 92p
 */
-@Table(name="posts")
+@Table(name="posts") //@Table이나 @Column에 name 명시하는 버릇 들이자 "개발자를 위해"
 public class Posts extends BaseTimeEntity{
 	
 	@Id //해당 테이블의 PK 필드를 나타낸다.
@@ -50,8 +50,6 @@ public class Posts extends BaseTimeEntity{
 		this.content = content;
 	}
 
-	
-	
 }
 
 
