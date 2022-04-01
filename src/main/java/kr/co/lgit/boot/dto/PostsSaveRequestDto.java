@@ -1,4 +1,4 @@
-package kr.co.lgit.boot.web.dto;
+package kr.co.lgit.boot.dto;
 
 import kr.co.lgit.boot.domain.posts.Posts;
 import lombok.Builder;

@@ -18,9 +18,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import kr.co.lgit.boot.domain.posts.Posts;
-import kr.co.lgit.boot.domain.posts.PostsRepository;
-import kr.co.lgit.boot.web.dto.PostsSaveRequestDto;
-import kr.co.lgit.boot.web.dto.PostsUpdateRequestDto;
+import kr.co.lgit.boot.dto.PostsSaveRequestDto;
+import kr.co.lgit.boot.dto.PostsUpdateRequestDto;
+import kr.co.lgit.boot.repository.PostsRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

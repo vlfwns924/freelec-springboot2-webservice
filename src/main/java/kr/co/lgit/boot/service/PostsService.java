@@ -1,12 +1,18 @@
-package kr.co.lgit.boot.domain.posts;
+package kr.co.lgit.boot.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import kr.co.lgit.boot.web.dto.PostsResponseDto;
-import kr.co.lgit.boot.web.dto.PostsSaveRequestDto;
-import kr.co.lgit.boot.web.dto.PostsUpdateRequestDto;
+import kr.co.lgit.boot.domain.posts.Posts;
+import kr.co.lgit.boot.dto.PostsListResponseDto;
+import kr.co.lgit.boot.dto.PostsResponseDto;
+import kr.co.lgit.boot.dto.PostsSaveRequestDto;
+import kr.co.lgit.boot.dto.PostsUpdateRequestDto;
+import kr.co.lgit.boot.repository.PostsRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -30,6 +36,13 @@ public class PostsService {
 	public PostsResponseDto findById (Long id) {
 		Posts entity = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" +id));
 		return new PostsResponseDto(entity);
+	}
+	
+	@Transactional
+	public List<PostsListResponseDto> findAllDesc(){
+		return postsRepository.findAllDesc().stream()
+				.map(PostsListResponseDto::new)
+				.collect(Collectors.toList());
 	}
 }
 

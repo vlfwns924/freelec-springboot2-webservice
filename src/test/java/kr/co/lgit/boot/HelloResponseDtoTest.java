@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
-import kr.co.lgit.boot.web.dto.HelloResponseDto;
+import kr.co.lgit.boot.dto.HelloResponseDto;
 
 public class HelloResponseDtoTest {
 	

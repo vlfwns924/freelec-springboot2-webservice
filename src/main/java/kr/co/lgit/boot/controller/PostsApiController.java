@@ -1,4 +1,4 @@
-package kr.co.lgit.boot.web;
+package kr.co.lgit.boot.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import kr.co.lgit.boot.domain.posts.PostsService;
-import kr.co.lgit.boot.web.dto.PostsResponseDto;
-import kr.co.lgit.boot.web.dto.PostsSaveRequestDto;
-import kr.co.lgit.boot.web.dto.PostsUpdateRequestDto;
+import kr.co.lgit.boot.dto.PostsResponseDto;
+import kr.co.lgit.boot.dto.PostsSaveRequestDto;
+import kr.co.lgit.boot.dto.PostsUpdateRequestDto;
+import kr.co.lgit.boot.service.PostsService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

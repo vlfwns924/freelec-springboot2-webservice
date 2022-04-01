@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import kr.co.lgit.boot.repository.PostsRepository;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest //별다른 설정 없이 @SpringBootTest를 사용할 경우 H2 데이터베이스를 자동으로 실행
 public class PostsRepositoryTest {
