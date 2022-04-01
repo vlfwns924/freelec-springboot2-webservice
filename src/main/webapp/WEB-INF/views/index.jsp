@@ -29,14 +29,14 @@
 			</tr>
 			</thead>
 			<tbody id="tbody">
-			<tr>
-				<c:forEach items="${postsList}" var="posts">
+				<c:forEach items="${posts}" var="posts">
+				<tr>
 					<td>${posts.id }</td>
 					<td>${posts.title }</td>
 					<td>${posts.author }</td>
 					<td>${posts.modifiedDate }</td>
+				</tr>
 				</c:forEach>
-			</tr>
 			</tbody>
 		</table>
 	</div>
