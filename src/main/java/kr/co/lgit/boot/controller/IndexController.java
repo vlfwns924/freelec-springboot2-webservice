@@ -3,7 +3,13 @@ package kr.co.lgit.boot.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import kr.co.lgit.boot.dto.PostsResponseDto;
 import kr.co.lgit.boot.service.PostsService;
 import lombok.RequiredArgsConstructor;
 
@@ -23,4 +29,12 @@ public class IndexController {
 	public String postsSave() {
 		return "postsSave";
 	}
+	
+	@GetMapping("posts/update/{id}")
+	public String postsUpdate(@PathVariable Long id, Model model) {
+		PostsResponseDto dto = postsService.findById(id);
+		model.addAttribute("post",dto);
+		return "postsUpdate";
+	} 
+
 }

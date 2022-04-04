@@ -32,7 +32,7 @@
 				<c:forEach items="${posts}" var="posts">
 				<tr>
 					<td>${posts.id }</td>
-					<td>${posts.title }</td>
+					<td><a href="/posts/update/${posts.id }">${posts.title }</a></td>
 					<td>${posts.author }</td>
 					<td>${posts.modifiedDate }</td>
 				</tr>
