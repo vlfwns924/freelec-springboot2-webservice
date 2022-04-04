@@ -42,9 +42,9 @@ let main = {
 		$.ajax({
 			type: 'PUT', //생성(Create): POST, 읽기(Read): GET, 수정(Update):PUT, 삭제(Delete): DELETE
 			url: '/api/v1/posts/'+id, //어느 게시글을 수정할지 URL Path를 구분하기 위해 id를 추가
-			dateType: 'json',
+			dataType: 'json',
 			contentType: 'application/json; charset=utf-8',
-			date: JSON.stringify(data)
+			data: JSON.stringify(data)
 		}).done(function(){
 			alert('글이 수정되었습니다.');
 			window.location.href='/';
