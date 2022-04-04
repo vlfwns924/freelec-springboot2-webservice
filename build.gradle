@@ -1,3 +1,9 @@
+buildscript {
+	ext {
+		queryDslVersion = "4.4.0"  //QueryDSL을 사용하기 위한 설정
+	}
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.6.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -30,6 +36,21 @@ dependencies {
 	// jsp 연동(jasper, jstl)
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation 'javax.servlet:jstl'
+	// QueryDSL
+    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+    annotationProcessor(
+            "javax.persistence:javax.persistence-api",
+            "javax.annotation:javax.annotation-api",
+            "com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
+}
+ 
+// QueryDSL //Q클래스를 사용할 수 있도록 generated 디렉토리를 sourceSet에 추가.
+sourceSets {
+    main {
+        java {
+            srcDirs = ["$projectDir/src/main/java", "$projectDir/build/generated"]
+        }
+    }
 }
 
 tasks.named('test') {
