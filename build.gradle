@@ -3,7 +3,7 @@ buildscript {
 		queryDslVersion = "4.4.0"  //QueryDSL을 사용하기 위한 설정
 	}
 }
-
+ 
 plugins {
 	id 'org.springframework.boot' version '2.6.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
