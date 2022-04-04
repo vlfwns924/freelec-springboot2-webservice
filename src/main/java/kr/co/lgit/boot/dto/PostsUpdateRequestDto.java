@@ -3,7 +3,6 @@ package kr.co.lgit.boot.dto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import java.lang.Long;
 
 @Getter
 @NoArgsConstructor

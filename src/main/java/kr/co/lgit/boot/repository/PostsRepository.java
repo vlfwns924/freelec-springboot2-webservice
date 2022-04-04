@@ -12,6 +12,12 @@ import kr.co.lgit.boot.domain.posts.Posts;
  @Repository를 추가할 필요도 없다. 주의할 점은 Entity클래스와 기본 Entity Repository는 함께 위치해야한다.(도메인 패지키에서 함께 관리)
  */
 public interface PostsRepository extends JpaRepository<Posts, Long>{
-	@Query("SELECT p FROM Posts p ORDER BY p.id DESC") List<Posts> findAllDesc(); //147p
+	@Query("SELECT p FROM Posts p ORDER BY p.id DESC") 
+	List<Posts> findAllDesc(); //147p
+	
+	/*
+	Posts findById(String Id);
+	== select * from posts where id = :id
+	*/
 }
  
