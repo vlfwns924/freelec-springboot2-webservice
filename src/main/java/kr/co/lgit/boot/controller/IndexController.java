@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import kr.co.lgit.boot.config.auth.dto.SessionUser;
 import kr.co.lgit.boot.dto.PostsResponseDto;
 import kr.co.lgit.boot.service.PostsService;
 import lombok.RequiredArgsConstructor;
