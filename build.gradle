@@ -42,6 +42,7 @@ dependencies {
             "javax.persistence:javax.persistence-api",
             "javax.annotation:javax.annotation-api",
             "com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client' //스프링 시큐리티 관련 의존성 설정
 }
  
 // QueryDSL //Q클래스를 사용할 수 있도록 generated 디렉토리를 sourceSet에 추가.
