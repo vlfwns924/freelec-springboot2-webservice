@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import kr.co.lgit.boot.domain.BaseTimeEntity;
 import lombok.Builder;
@@ -14,14 +13,13 @@ import lombok.NoArgsConstructor;
 
 @Getter //롬복의 어노테이션. 클래스 내 모든 필드의 Getter 메소드를 자동생성
 @NoArgsConstructor //롬복의 어노테이션. 기본 생성자 자동 추가 //여기선 public Posts() {} 와 같은 효과
-@Entity
+@Entity(name="posts") //@Table이나 @Column에 name 명시하는 버릇 들이자 "개발자를 위해"
 /*
  JPA의 어노테이션 - 롬복보다 더 주요 어노테이션이기 때문에 클래스에 가깝게 두었다. -> 나중에 코틀린 등의 새 언어 전환 시 롬복 @ 쉽게삭제
  @Entity는 테이블과 링크될 클래스임을 나타낸다. 기본값으로 클래스의 카멜케이스 이름을 언더스코어 네이밍(_)으로 테이블 이름을 매칭한다.
  ex) SalesManager.java -> sales_manager table    //그리고 참고사항 91p (요약:Entity의 PK는 Long 타입의 Auto_increment를 추천)
  그리고 Entity에는 절대 Setter 메소드를 만들지 않는다. 대신, 해당 필드의 값 변경이 필요하면 명확히 그 목적과 의도를 나타낼 수 있는 메소드 추가. 92p
 */
-@Table(name="posts") //@Table이나 @Column에 name 명시하는 버릇 들이자 "개발자를 위해"
 public class Posts extends BaseTimeEntity{
 	
 	@Id //해당 테이블의 PK 필드를 나타낸다.

@@ -13,7 +13,7 @@ import kr.co.lgit.boot.domain.posts.Posts;
  */
 public interface PostsRepository extends JpaRepository<Posts, Long>{
 	@Query("SELECT p FROM Posts p ORDER BY p.id DESC") 
-	List<Posts> findAllDesc(); //147p
+	List<Posts> findAllDesc(); //147p에 QueryDSL 추천글 읽기
 	
 	/*
 	Posts findById(String Id);
