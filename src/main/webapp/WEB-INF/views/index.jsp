@@ -20,7 +20,7 @@
 			${^userName }			
 			<a href="/oauth2/authorization/google" class="btn-btn-success active" role="button">Google Login</a>
 			${userName }
-			</div>
+		</div>
 	</div>
 	<div class="col-md-12">
 		<div class="row">
