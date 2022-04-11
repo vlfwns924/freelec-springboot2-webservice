@@ -28,8 +28,9 @@ public class PostsService {
 	@Transactional
 	public Long update(Long id, PostsUpdateRequestDto requestDto) {
 		Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+ id));
-		posts.update(requestDto.getTitle(), requestDto.getContent());
-		
+		//posts.update(requestDto.getTitle(), requestDto.getContent()); //setter없이 update하려면 이렇게
+		posts.setTitle(requestDto.getTitle()); //entity에서 setter를 지양하라고 하지만 사용할수도있다
+		posts.setContent(requestDto.getContent());
 		return id;
 	}
 	

@@ -10,7 +10,9 @@ import kr.co.lgit.boot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
 @Getter //롬복의 어노테이션. 클래스 내 모든 필드의 Getter 메소드를 자동생성
 @NoArgsConstructor //롬복의 어노테이션. 기본 생성자 자동 추가 //여기선 public Posts() {} 와 같은 효과
 @Entity(name="posts") //@Table이나 @Column에 name 명시하는 버릇 들이자 "개발자를 위해"
