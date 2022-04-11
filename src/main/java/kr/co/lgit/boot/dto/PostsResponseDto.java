@@ -2,8 +2,10 @@ package kr.co.lgit.boot.dto;
 
 import kr.co.lgit.boot.domain.posts.Posts;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class PostsResponseDto {
 	
 	private Long id;
