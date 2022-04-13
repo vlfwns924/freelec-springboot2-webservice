@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 					.oauth2Login() //OAuth 2 로그인 기능에 대한 여러 설정의 진입점
 						.userInfoEndpoint() // OAuth 2 로그인 성공 이후 사용자 정보를 가져올 때의 설정들을 담당
-							.userService(coustomOAuth2UserService); //소셜로그인 성공 시 후속 조치를 진행할 UserService 인터페이스의 구현체를 등록
+							.userService(customOAuth2UserService); //소셜로그인 성공 시 후속 조치를 진행할 UserService 인터페이스의 구현체를 등록
 	}
 
 }

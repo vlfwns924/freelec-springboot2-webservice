@@ -14,12 +14,13 @@
 	<div class="row">
 		<div class="col-md-6">
 			<a href="/posts/save" role="button" class="btn-btn-primary">글등록</a> 
-			${#userName } Logged in as: <span id="user">${userName }</span>
+			<c:if test="${!userName.empty}">
+			Logged in as: <span id="user">${userName }</span>
 			<a href="/logout" class="btn btn-info active" role="button">Logout</a>
-			${userName }
-			${^userName }			
+			</c:if>
+			<c:if test="${userName.empty}">			
 			<a href="/oauth2/authorization/google" class="btn-btn-success active" role="button">Google Login</a>
-			${userName }
+			</c:if>
 		</div>
 	</div>
 	<div class="col-md-12">

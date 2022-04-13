@@ -9,9 +9,11 @@ import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserServ
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
+import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
+import kr.co.lgit.boot.config.auth.dto.SessionUser;
 import kr.co.lgit.boot.domain.user.User;
 import kr.co.lgit.boot.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -34,12 +36,18 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 		OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
 		
 		User user = saveOrUpdate(attributes);
-		HttpSession.setAttribute("user", new SessionUser(user));
+		httpSession.setAttribute("user", new SessionUser(user));
 		
-		return new DefaultOAuth2uer(
+		return new DefaultOAuth2User(
 				Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
 													attributes.getAttributes(),
-													attributes.getNameAttributesKey());1
-		)
+													attributes.getNameAttributeKey());
+	}
+	
+	private User saveOrUpdate(OAuthAttributes attributes) {
+		User user = userRepository.findByEmail(attributes.getEamil())
+				.map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
+				.orElse(attributes.toEntity());
+		return userRepository.save(user);
 	}
 }

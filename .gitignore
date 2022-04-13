@@ -1,5 +1,4 @@
-application-ouath.properties
-/application-ouath.properties
+application-oauth.properties
 HELP.md
 .gradle
 build/
