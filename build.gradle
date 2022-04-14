@@ -5,10 +5,10 @@ buildscript {
 }
  
 plugins {
-	id 'org.springframework.boot' version '2.6.5'
+	id 'org.springframework.boot' version '2.6.6'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	id 'eclipse'
+	id 'war'
 }
 
 group = 'kr.co.lgit'
@@ -17,27 +17,29 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
-	jcenter() //추가 이유 : mavenCentral은 본인이 라이브러리를 업로드하기 위해 많은 과정과 설정이 필요. jcenter가 간단하게 가능
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation group: 'junit', name: 'junit', version: '4.12' //junit(테스트 코드) 버전 설정 (새로고침마다 @RunWith 오류 해결)
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools' //클래스 파일 수정 후 테스트 시 Spring Boot 재시작 없이 반영(자동 리로드)
+	implementation 'org.springframework.boot:spring-boot-devtools' /* hot-swap */ //파일 수정 후 재시작 없이 Spring boot 반영
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //스프링 부트 버전에 맞춰 자동으로 JPA관련 라이브러리들의 버전 관리
-	// database (springboot 내장 jdbc 사용)
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-	runtimeOnly 'mysql:mysql-connector-java'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc' // database (springboot 내장 jdbc 사용2)
 	// jsp 연동(jasper, jstl)
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation 'javax.servlet:jstl'
-	// Log4JDBC (application.properties에도 따로 설정해주면 SQL 쿼리 결과를 테이블 형태로 보여줌)
+	// Log4JDBC (application.properties에도 설정해주면 SQL 쿼리 결과를 테이블 형태로 보여줌)
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 	// mariaDB 연결
 	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
+	
+	compileOnly 'org.projectlombok:lombok' //롬복
+	runtimeOnly 'mysql:mysql-connector-java' //database (springboot 내장 jdbc 사용1)
+	// yml, properties에서 사용하는 Configuration의 자동완성을 도와주는 메타데이터
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok' //롬복
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
 	// QueryDSL
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
