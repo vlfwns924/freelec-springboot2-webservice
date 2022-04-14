@@ -31,11 +31,14 @@ dependencies {
 	// database (springboot 내장 jdbc 사용)
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	runtimeOnly 'mysql:mysql-connector-java'
-	// mariaDB 연결
-	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
 	// jsp 연동(jasper, jstl)
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation 'javax.servlet:jstl'
+	// Log4JDBC (application.properties에도 따로 설정해주면 SQL 쿼리 결과를 테이블 형태로 보여줌)
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+	// mariaDB 연결
+	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
+	
 	// QueryDSL
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
     annotationProcessor(
