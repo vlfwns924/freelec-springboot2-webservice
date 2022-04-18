@@ -15,6 +15,7 @@ public interface PostsRepository extends JpaRepository<Posts, Long>{
 	@Query(value = "SELECT * FROM posts p ORDER BY p.id DESC", nativeQuery = true) 
 	List<Posts> findAllDesc(); //147p에 QueryDSL 추천글 읽기
 	
+	//queryDSL 공부하기
 	/*
 	Posts findById(String Id);
 	== select * from posts where id = :id
