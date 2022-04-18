@@ -1,5 +1,6 @@
-application-oauth.properties/
-/application-oauth.properties/
+.properties
+application-oauth.properties -
+resources/application-oauth.properties/
 /application-oauth.properties
 HELP.md
 .gradle
