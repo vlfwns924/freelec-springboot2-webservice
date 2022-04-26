@@ -23,7 +23,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-devtools' /* hot-swap */ //파일 수정 후 재시작 없이 Spring boot 반영
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //스프링 부트 버전에 맞춰 자동으로 JPA관련 라이브러리들의 버전 관리
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.6.6'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc' // database (springboot 내장 jdbc 사용2)
 	// jsp 연동(jasper, jstl)
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
@@ -33,6 +33,11 @@ dependencies {
 	// mariaDB 연결
 	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
 	
+	// security (core,web,config 포함되는지 확인해보기)
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.6.6'  
+	implementation group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.3.5.RELEASE'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client' //
+	
 	compileOnly 'org.projectlombok:lombok' //롬복
 	runtimeOnly 'mysql:mysql-connector-java' //database (springboot 내장 jdbc 사용1)
 	// yml, properties에서 사용하는 Configuration의 자동완성을 도와주는 메타데이터
@@ -41,22 +46,9 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
-	// QueryDSL
-    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
-    annotationProcessor(
-            "javax.persistence:javax.persistence-api",
-            "javax.annotation:javax.annotation-api",
-            "com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client' //스프링 시큐리티 관련 의존성 설정
-}
- 
-// QueryDSL //Q클래스를 사용할 수 있도록 generated 디렉토리를 sourceSet에 추가.
-sourceSets {
-    main {
-        java {
-            srcDirs = ["$projectDir/src/main/java", "$projectDir/build/generated"]
-        }
-    }
+	// querydsl-jpa, apt
+	implementation group: 'com.querydsl', name: 'querydsl-jpa', version: '4.4.0'
+	implementation group: 'com.querydsl', name: 'querydsl-apt', version: '4.4.0'
 }
 
 tasks.named('test') {
